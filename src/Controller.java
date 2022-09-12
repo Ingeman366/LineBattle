@@ -1,6 +1,7 @@
 public class Controller {
 
     void run(){
+        Die die1 = new Die();
         Player player = new Player(25,true,10,true,2500);
         Player enemy = new Player(25,true,-10,true,2500);
         boolean playeralive = player.isAlive();

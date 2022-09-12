@@ -10,7 +10,7 @@ public class GameLogic {
 
  */
 
-    void attack(){
+     void attack(){
 
     }
     void forward(){
@@ -32,4 +32,13 @@ public class GameLogic {
 
     }
 
+    void enemyAttack(){
+
+    }
+    void enemyForward(){
+
+    }
+    void enemyRetreat(){
+
+    }
 }
