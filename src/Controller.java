@@ -1,11 +1,10 @@
 public class Controller {
 
     void run(){
-        boolean playeralive = player(alive);
-        boolean enemyalive = player(alive);
-        Player player = new Player();
-        Player enemy = new Player();
-
+        Player player = new Player(25,true,10,true,2500);
+        Player enemy = new Player(25,true,-10,true,2500);
+        boolean playeralive = player.isAlive();
+        boolean enemyalive = enemy.isAlive();
         do {
             switch (playeraction) {
                 case forward -> player.forward;
@@ -29,7 +28,15 @@ public class Controller {
 
         } while (playeralive || enemyalive)
     }
-    public static void main(String[] args) {
 
+
+    public static void main(String[] args) {
+        Die die1 = new Die();
+        die1.rollDie();
+        System.out.println(die1.getDie());
+        die1.rollDie();
+        System.out.println(die1.getDie());
+        die1.rollDie();
+        System.out.println(die1.getDie());
     }
 }
