@@ -19,17 +19,10 @@ public class GameLogic {
     void forward(){
          die1.rollDie();
          switch (die1.getDie()){
-             case 1, 2, 3 -> player.setPosition(player.getPosition() - 1);
-             case 4, 5, 6 -> player.setPosition(player.getPosition() - 2);
+             case 1, 2, 3 -> player.setPosition(player.getPosition() + 1);
+             case 4, 5, 6 -> player.setPosition(player.getPosition() + 2);
          }
         System.out.println("Player has moved forward and is now at position " + player.getPosition());
-    }
-    void forwardEnemy(){
-         die1.rollDie();
-         switch (die1.getDie()){
-             case 1, 2, 3 -> enemy.setPosition(enemy.getPosition() + 1 );
-             case 4, 5, 6 -> enemy.setPosition(enemy.getPosition() + 2 );
-         }
     }
     void retreat(){
          die1.rollDie();
