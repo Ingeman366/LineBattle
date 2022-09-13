@@ -21,7 +21,7 @@ public class Player {
         this.troops = troops;
     }
 
-    public boolean isBomb() {
+    public boolean getBomb() {
         return bomb;
     }
 
@@ -37,7 +37,7 @@ public class Player {
         this.position = position;
     }
 
-    public boolean isAlive() {
+    public boolean getAlive() {
         return alive;
     }
 
