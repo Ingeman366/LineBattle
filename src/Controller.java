@@ -1,7 +1,6 @@
 public class Controller {
 
     void run(){
-        GameLogic game = new GameLogic();
         Die die1 = new Die();
         Player player = new Player(25,true,10,true,2500);
         Player enemy = new Player(25,true,-10,true,2500);
@@ -9,13 +8,13 @@ public class Controller {
         boolean enemyalive = enemy.isAlive();
         do {
             switch (playeraction) {
-                case forward -> game.forward();
-                case retreat -> game.retreat();
-                case attack -> player.attack;
-                case dropBomb -> player.dropBomb;
-                case detonateBomb -> player.detonateBomb;
-                case showStats -> player.showStats;
-                case surrender -> game.surrender();
+                case forward -> GameLogic.forward();
+                case retreat -> GameLogic.retreat();
+                case attack -> GameLogic.attack();
+                case dropBomb -> GameLogic.dropBomb();
+                case detonateBomb -> GameLogic.detonateBomb();
+                case showStats -> GameLogic.showStats();
+                case surrender -> GameLogic.surrender();
             }
 
             switch (enemyaction) {
@@ -28,7 +27,7 @@ public class Controller {
                 //case surrender -> player.surrender;
             }
 
-        } while (playeralive || enemyalive)
+        } while (playeralive || enemyalive);
     }
 
 
