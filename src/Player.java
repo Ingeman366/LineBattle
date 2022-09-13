@@ -5,6 +5,18 @@ public class Player {
     private boolean alive = true;
     private int firepower = 2500;
 
+    public int getBombPosition() {
+        return bombPosition;
+    }
+
+    public void setBombPosition(int bombPosition) {
+        this.bombPosition = bombPosition;
+    }
+
+    private int bombPosition;
+
+
+
     public int getFirepower() {
         return firepower;
     }
