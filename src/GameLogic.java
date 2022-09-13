@@ -50,6 +50,11 @@ public class GameLogic {
 
     }
     void enemyForward(){
+         die1.rollDie();
+         switch (die1.getDie()){
+             case 1, 2, 3 -> enemy.setPosition(enemy.getPosition() + 1);
+             case 4, 5, 6 -> enemy.setPosition(enemy.getPosition() + 2);
+         }
 
     }
     void enemyRetreat(){
