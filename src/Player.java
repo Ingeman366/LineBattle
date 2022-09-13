@@ -5,6 +5,7 @@ public class Player {
     private boolean alive = true;
     private int firepower = 2500;
 
+
     public int getBombPosition() {
         return bombPosition;
     }

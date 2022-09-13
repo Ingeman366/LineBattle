@@ -49,7 +49,7 @@ public class GameLogic {
         player.setBomb(false);
     }
     void detonateBomb(){
-
+        int bombPostion = player.getBombPosition();
 
     }
     void showStats(){
