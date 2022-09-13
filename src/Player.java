@@ -1,9 +1,9 @@
 public class Player {
-    private int troops;
-    private boolean bomb;
+    private int troops = 25;
+    private boolean bomb = true;
     private int position;
-    private boolean alive;
-    private int firepower;
+    private boolean alive = true;
+    private int firepower = 2500;
 
     public int getFirepower() {
         return firepower;
@@ -45,12 +45,9 @@ public class Player {
         this.alive = alive;
     }
 
-    public Player(int troops, boolean bomb, int position, boolean alive, int firepower) {
-        this.troops = troops;
-        this.bomb = bomb;
+    public Player(int position) {
         this.position = position;
-        this.alive = alive;
-        this.firepower = firepower;
+
     }
 }
 
