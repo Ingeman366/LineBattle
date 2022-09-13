@@ -69,11 +69,31 @@ public class GameLogic {
 
     }
     void enemyRetreat(){
+         die1.rollDie();
+         switch (die1.getDie()){
+             case 1, 2 -> enemy.setPosition(enemy.getPosition() - 1);
+             case 3, 4 -> enemy.setPosition(enemy.getPosition() - 2);
+             case 5, 6 -> enemy.setPosition(enemy.getPosition() - 3);
+         }
 
     }
 
     void scoutReport(){
+        int distanceBetween = (player.getPosition()- enemy.getPosition());
+        switch (distanceBetween) {
+        case 1,2:
+            System.out.println("Pas på! Modstanderen står nu " + distanceBetween + " felter FORAN dig");
+            break;
+        case -1,-2,-3:
+            System.out.println("Pas på! Modstanderen står nu " + Math.abs(distanceBetween) + " felter BAG dig");
+            break;
+        case 0:
+            System.out.println("Watch out! Du står i samme felt som modstanderen");
+            break;
+        default:
+            break;
 
+        }
     }
 
     void enemyDropBomb() {
