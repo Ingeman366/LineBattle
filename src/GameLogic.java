@@ -1,26 +1,44 @@
 public class GameLogic {
+/*
+    private String attack;
+    private String forward;
+    private String retreat;
+    private boolean surrender;
+    private boolean dropBomb;
+    private boolean detonateBomb;
+    private String showStats;
 
-    private String attack(attackPower, playerPosition, enemyPosition, dice){
+ */
 
-    }
-    private String forward(playerPosition, dice){
-
-    }
-    private String retreat(playerPostition, dice){
-
-    }
-    private boolean surrender(playerAlive){
-
-    }
-    private boolean dropBomb(bomb, playerPostition){
+     void attack(){
 
     }
-    private boolean detonateBomb(bombPosition, playerPosition, enemyPosition){
+    void forward(){
 
     }
-    private String showStats(playerStats, enemyStats){
+    void retreat(){
+
+    }
+    void surrender(){
+
+    }
+    void dropBomb(){
+
+    }
+    void detonateBomb(){
+
+    }
+    void showStats(){
 
     }
 
+    void enemyAttack(){
 
+    }
+    void enemyForward(){
+
+    }
+    void enemyRetreat(){
+
+    }
 }
