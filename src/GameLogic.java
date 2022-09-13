@@ -21,7 +21,7 @@ public class GameLogic {
         return input.charAt(0);
     }
 
-    char enemyAction(){
+    char enemyAction(){ //expand enemy actions to have more actions
         char eAction = '0';
         int action = die1.rng.nextInt(3)+1;
         switch (action){
@@ -50,7 +50,7 @@ public class GameLogic {
              case 3, 4 -> player.setPosition(player.getPosition() + 2);
              case 5, 6 -> player.setPosition(player.getPosition() + 3);
          }
-        System.out.println("Player has retreated and is now at position "+ player.getPosition() + "\n");
+        System.out.println("Player has retreated and is now at position "+ player.getPosition() + "\n"); // need limit to retreat at 10
     }
     void surrender(){
          player.setAlive(false);
@@ -88,7 +88,7 @@ public class GameLogic {
              case 3, 4 -> enemy.setPosition(enemy.getPosition() - 2);
              case 5, 6 -> enemy.setPosition(enemy.getPosition() - 3);
          }
-        System.out.println("Enemy has retreated\n");
+        System.out.println("Enemy has retreated\n"); //need limit to retreat at -10
     }
 
     void scoutReport(){
