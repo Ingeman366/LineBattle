@@ -6,14 +6,14 @@ public class Controller {
         boolean playeralive = player.isAlive();
         boolean enemyalive = enemy.isAlive();
         do {
-            switch (playeraction) {
-                case forward -> gameLogic.forward();
-                case retreat -> gameLogic.retreat();
-                case attack -> gameLogic.attack();
-                case dropBomb -> gameLogic.dropBomb();
-                case detonateBomb -> gameLogic.detonateBomb();
-                case showStats -> gameLogic.showStats();
-                case surrender -> gameLogic.surrender();
+            switch (gameLogic.playerAction()) {
+                case 'f' -> gameLogic.forward();
+                case 'r' -> gameLogic.retreat();
+                case 'a' -> gameLogic.attack();
+                case 'b' -> gameLogic.dropBomb();
+                case 'd' -> gameLogic.detonateBomb();
+                case 's' -> gameLogic.showStats();
+                case 'q' -> gameLogic.surrender();
             }
 
             switch (enemyaction) {
