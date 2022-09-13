@@ -82,8 +82,7 @@ public class GameLogic {
             System.out.println("Pas på! Modstanderen står nu " + distanceBetween + " felter FORAN dig");
             break;
         case -1,-2,-3:
-            System.out.println("Pas på! Modstanderen står nu " + distanceBetween + " felter BAG dig");
-            break;
+            System.out.println("Pas på! Modstanderen står nu " + Math.abs(distanceBetween) + " felter BAG dig");
             break;
         case 0:
             System.out.println("Watch out! Du står i samme felt som modstanderen");
