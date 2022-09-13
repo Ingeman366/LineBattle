@@ -66,6 +66,12 @@ public class GameLogic {
 
     }
     void enemyRetreat(){
+         die1.rollDie();
+         switch (die1.getDie()){
+             case 1, 2 -> enemy.setPosition(enemy.getPosition() - 1);
+             case 3, 4 -> enemy.setPosition(enemy.getPosition() - 2);
+             case 5, 6 -> enemy.setPosition(enemy.getPosition() - 3);
+         }
 
     }
 
