@@ -2,9 +2,7 @@ public class Controller {
 
     void run(){
         GameLogic gameLogic = new GameLogic();
-
-        boolean playeralive = player.isAlive();
-        boolean enemyalive = enemy.isAlive();
+        boolean keepRunning = true;
         do {
             switch (gameLogic.playerAction()) {
                 case 'f' -> gameLogic.forward();
@@ -16,20 +14,21 @@ public class Controller {
                 case 'q' -> gameLogic.surrender();
             }
 
-            switch (enemyaction) {
-                case forward -> gameLogic.enemyForward();
-                case retreat -> gameLogic.enemyRetreat();
-                case attack -> gameLogic.enemyAttack();
-                case dropBomb -> gameLogic.enemyDropBomb();
-                case detonateBomb -> gameLogic.enemyDetonateBomb();
-                //case showStats -> GameLogic.showStats();
+            switch (gameLogic.enemyAction()) {
+                case 'f' -> gameLogic.enemyForward();
+                case 'r' -> gameLogic.enemyRetreat();
+                case 'a' -> gameLogic.enemyAttack();
+                //case dropBomb -> gameLogic.enemyDropBomb();
+                //case detonateBomb -> gameLogic.enemyDetonateBomb();
                 //case surrender -> GameLogic.surrender();
             }
 
-        } while (playeralive || enemyalive);
+        } while (keepRunning);
     }
 
 
     public static void main(String[] args) {
+        Controller controller = new Controller();
+        controller.run();
     }
 }

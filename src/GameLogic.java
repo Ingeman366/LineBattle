@@ -16,9 +16,20 @@ public class GameLogic {
         } else if (!player.getBomb()){
             System.out.println("Choose an action \n1. Forward(f) \n2. Retreat(r) \n3. Attack(a)" +
                     "\n4. Detonate Bomb(d) \n5. Show Stats(s) \n6. Surrender(q)");
-        }
+        } //Finde en anden måde at printe detonate og lave endnu if else til dette f.eks.
         String input = in.nextLine();
         return input.charAt(0);
+    }
+
+    char enemyAction(){
+        char eAction = '0';
+        int action = die1.rng.nextInt(3)+1;
+        switch (action){
+            case 1 -> eAction = 'f';
+            case 2 -> eAction = 'r';
+            case 3 -> eAction = 'a';
+        }
+        return eAction;
     }
 
      void attack(){
@@ -30,7 +41,7 @@ public class GameLogic {
              case 1, 2, 3 -> player.setPosition(player.getPosition() - 1);
              case 4, 5, 6 -> player.setPosition(player.getPosition() - 2);
          }
-        System.out.println("Player has moved forward and is now at position " + player.getPosition());
+        System.out.println("Player has moved forward and is now at position " + player.getPosition() + "\n");
     }
     void retreat(){
          die1.rollDie();
@@ -39,7 +50,7 @@ public class GameLogic {
              case 3, 4 -> player.setPosition(player.getPosition() + 2);
              case 5, 6 -> player.setPosition(player.getPosition() + 3);
          }
-        System.out.println("Player has retreated and is now at position "+ player.getPosition());
+        System.out.println("Player has retreated and is now at position "+ player.getPosition() + "\n");
     }
     void surrender(){
          player.setAlive(false);
@@ -68,7 +79,7 @@ public class GameLogic {
              case 1, 2, 3 -> enemy.setPosition(enemy.getPosition() + 1);
              case 4, 5, 6 -> enemy.setPosition(enemy.getPosition() + 2);
          }
-
+        System.out.println("Enemy has moved forward\n");
     }
     void enemyRetreat(){
          die1.rollDie();
@@ -77,7 +88,7 @@ public class GameLogic {
              case 3, 4 -> enemy.setPosition(enemy.getPosition() - 2);
              case 5, 6 -> enemy.setPosition(enemy.getPosition() - 3);
          }
-
+        System.out.println("Enemy has retreated\n");
     }
 
     void scoutReport(){
