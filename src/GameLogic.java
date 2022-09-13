@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class GameLogic {
     Scanner in = new Scanner(System.in);
     Die die1 = new Die();
-    Player player = new Player(10);
+    Player player = new Player(10); //Update playerpositions to depend on dice roll
     Player enemy = new Player(-10);
 
     char playerAction(){
