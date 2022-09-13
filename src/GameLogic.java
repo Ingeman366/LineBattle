@@ -51,7 +51,10 @@ public class GameLogic {
 
     }
     void showStats(){
-
+        System.out.printf("Player position: %d \nPlayer firepower: %d \nPlayer troops: %d \nPlayer bomb: %b\n\n",
+                player.getPosition(), player.getFirepower(), player.getTroops(), player.getBomb());
+        System.out.printf("Enemy position: %d \nEnemy firepower: %d \nEnemy troops: %d \nEnemy bomb: %b\n\n",
+                enemy.getPosition(), enemy.getFirepower(), enemy.getTroops(), enemy.getBomb());
     }
 
     void enemyAttack(){
@@ -71,5 +74,11 @@ public class GameLogic {
 
     void scoutReport(){
 
+    }
+
+    void enemyDropBomb() {
+    }
+
+    void enemyDetonateBomb() {
     }
 }

@@ -17,11 +17,11 @@ public class Controller {
             }
 
             switch (enemyaction) {
-                case forward -> GameLogic.forward();
-                case retreat -> GameLogic.retreat();
-                case attack -> GameLogic.attack();
-                case dropBomb -> GameLogic.dropBomb();
-                case detonateBomb -> GameLogic.detonateBomb();
+                case forward -> gameLogic.enemyForward();
+                case retreat -> gameLogic.enemyRetreat();
+                case attack -> gameLogic.enemyAttack();
+                case dropBomb -> gameLogic.enemyDropBomb();
+                case detonateBomb -> gameLogic.enemyDetonateBomb();
                 //case showStats -> GameLogic.showStats();
                 //case surrender -> GameLogic.surrender();
             }
