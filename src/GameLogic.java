@@ -1,7 +1,17 @@
 public class GameLogic {
     Die die1 = new Die();
-    Player player = new Player(25,true,10,true,2500);
-    Player enemy = new Player(25,true,-10,true,2500);
+    Player player = new Player(10);
+    Player enemy = new Player(-10);
+    /*
+    private String attack;
+    private String forward;
+    private String retreat;
+    private boolean surrender;
+    private boolean dropBomb;
+    private boolean detonateBomb;
+    private String showStats;
+
+ */
 
      void attack(){
 
