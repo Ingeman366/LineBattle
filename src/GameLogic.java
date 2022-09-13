@@ -45,9 +45,11 @@ public class GameLogic {
          player.setAlive(false);
     }
     void dropBomb(){
-
+        player.setBombPosition(player.getPosition());
+        player.setBomb(false);
     }
     void detonateBomb(){
+
 
     }
     void showStats(){
