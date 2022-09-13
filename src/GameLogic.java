@@ -8,11 +8,14 @@ public class GameLogic {
 
     char playerAction(){
         if (player.getPosition() > 0) {
-            System.out.println("Choose an action \n1. Forward \n2. Retreat \n3. Attack \n4. Show Stats \n5. Surrender");
+            System.out.println("Choose an action \n1. Forward(f) \n2. Retreat(r) \n3. Attack(a)" +
+                    "\n4. Show Stats(s) \n5. Surrender(q)");
         } else if (player.getPosition() < 0){
-            System.out.println("Choose an action \n1. Forward \n2. Retreat \n3. Attack \n4. Drop Bomb \n5. Show Stats \n6. Surrender");
+            System.out.println("Choose an action \n1. Forward(f) \n2. Retreat(r) \n3. Attack(a)" +
+                    "\n4. Drop Bomb(b) \n5. Show Stats(s) \n6. Surrender(q)");
         } else if (!player.getBomb()){
-            System.out.println("Choose an action \n1. Forward \n2. Retreat \n3. Attack \n4. Detonate Bomb \n5. Show Stats \n6. Surrender");
+            System.out.println("Choose an action \n1. Forward(f) \n2. Retreat(r) \n3. Attack(a)" +
+                    "\n4. Detonate Bomb(d) \n5. Show Stats(s) \n6. Surrender(q)");
         }
         String input = in.nextLine();
         return input.charAt(0);
