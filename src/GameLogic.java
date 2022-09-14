@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class GameLogic {
@@ -20,7 +21,7 @@ public class GameLogic {
         }
         String input = in.nextLine();
         while(input.isEmpty()){
-            System.out.print("Please choose and action");
+            System.out.println("Please choose and action");
             input = in.nextLine();
         }
         return input.charAt(0);
@@ -81,8 +82,8 @@ public class GameLogic {
     void dropBomb(){
         player.setBombPosition(player.getPosition());
         player.setBomb(false);
-        System.out.println("You have dropped the bomb at position" + player.getBombPosition());
-    }
+        System.out.println("You have dropped the bomb at position " + player.getBombPosition());
+    } //TODO make it so that you can only drop one bomb
     void detonateBomb(){
         int bombPostion = player.getBombPosition();
         if (bombPostion == -10) {
@@ -102,6 +103,7 @@ public class GameLogic {
 
     void enemyAttack(){
 //TODO make enemyAttack
+        System.out.println("Enemy attacked\n");
     }
     void enemyForward(){
         die1.rollDie();
