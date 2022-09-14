@@ -4,8 +4,8 @@ public class GameLogic {
     Scanner in = new Scanner(System.in);
     Die die1 = new Die();
 
-    Player player = new Player(10 - die1.rollAndGetDie()); //TODO Update playerpositions to depend on dice roll
-    Player enemy = new Player(-10 + die1.rollAndGetDie()); //TODO Update playerpositions to depend on dice roll
+    Player player = new Player(10 - (die1.rollAndGetDie())-1);
+    Player enemy = new Player(-10 + (die1.rollAndGetDie())-1);
 
     char playerAction(){
         scoutReport();
@@ -52,13 +52,13 @@ public class GameLogic {
     }
 
      void attack(){
-
+//TODO make attack
     }
     void forward() {
         die1.rollDie();
-        if (player.getPosition()==-10){
+        if (player.getPosition() == -10){
             System.out.println("Player is at the end of the board and can't move any further");
-        } else if (player.getPosition()==-9){
+        } else if (player.getPosition() == -9){
             player.setPosition(player.getPosition()-1);
             System.out.println("Player has moved forward and is now at position " + player.getPosition() + "\n");
         } else {
@@ -71,15 +71,26 @@ public class GameLogic {
     }
     void retreat(){
          die1.rollDie();
-         switch (die1.getDie()){
-             case 1, 2 -> player.setPosition(player.getPosition() + 1);
-             case 3, 4 -> player.setPosition(player.getPosition() + 2);
-             case 5, 6 -> player.setPosition(player.getPosition() + 3);
+         if (player.getPosition() == 10){
+             System.out.println("Player is already back at base and cannot go further backwards");
+         } else {
+             switch (die1.getDie()) {
+                 case 1, 2 -> player.setPosition(player.getPosition() + 1);
+                 case 3, 4 -> player.setPosition(player.getPosition() + 2);
+                 case 5, 6 -> player.setPosition(player.getPosition() + 3);
+             }
+             if (player.getPosition() > 10) {
+                 player.setPosition(10);
+             }
+             if (player.getPosition() == 10) {
+                 System.out.println("Player has retreated and is now back at base where they have been rearmed");
+             } else {
+                 System.out.println("Player has retreated and is now at position " + player.getPosition() + "\n");
+             }
          }
-        System.out.println("Player has retreated and is now at position "+ player.getPosition() + "\n");
-    } //TODO need limit to retreat @10
+    }
     void surrender(){
-         player.setAlive(false);
+         player.setAlive(false); //TODO Check whether this works
     }
     void dropBomb(){
         player.setBombPosition(player.getPosition());
@@ -97,20 +108,17 @@ public class GameLogic {
     }
 
     void enemyAttack(){
-
+//TODO make enemyAttack
     }
     void enemyForward(){
         die1.rollDie();
-        if (enemy.getPosition()==10){
-            } else if (enemy.getPosition()==9){
-            enemy.setPosition(enemy.getPosition()+1);
-            System.out.println("Enemy has moved forward\n");
-        } else {
             switch (die1.getDie()){
                 case 1, 2, 3 -> enemy.setPosition(enemy.getPosition() + 1);
                 case 4, 5, 6 -> enemy.setPosition(enemy.getPosition() + 2);
             }
-            System.out.println("Enemy has moved forward\n");
+        System.out.println("Enemy has moved forward\n");
+        if (enemy.getPosition() > 10){
+            enemy.setPosition(10);
         }
     }
     void enemyRetreat(){
@@ -120,7 +128,10 @@ public class GameLogic {
              case 3, 4 -> enemy.setPosition(enemy.getPosition() - 2);
              case 5, 6 -> enemy.setPosition(enemy.getPosition() - 3);
          }
-        System.out.println("Enemy has retreated\n"); //TODO need limit to retreat at -10
+        System.out.println("Enemy has retreated\n");
+         if (enemy.getPosition() < -10){
+             enemy.setPosition(-10);
+         } //TODO double check this solution
     }
 
     void scoutReport(){
@@ -134,9 +145,9 @@ public class GameLogic {
         }
     }
 
-    void enemyDropBomb() {
+    void enemyDropBomb() { //TODO make enemyDrobBomb when all else is done
     }
 
-    void enemyDetonateBomb() {
+    void enemyDetonateBomb() { //TODO make enemyDetonateBomb when all else is done
     }
 }
