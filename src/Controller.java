@@ -26,9 +26,11 @@ public class Controller {
         } while (keepRunning); //TODO make a while condition
     }
 
-
+//TODO Discus making another class for main
     public static void main(String[] args) {
         Controller controller = new Controller();
+        GameLogic game = new GameLogic();
+        game.startGame();
         controller.run();
     }
 }

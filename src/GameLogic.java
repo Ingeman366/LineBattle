@@ -3,40 +3,26 @@ import java.util.Scanner;
 public class GameLogic {
     Scanner in = new Scanner(System.in);
     Die die1 = new Die();
-
+    UI ui = new UI();
     Player player = new Player(10 - (die1.rollAndGetDie())-1);
     Player enemy = new Player(-10 + (die1.rollAndGetDie())-1);
 
     char playerAction(){
         scoutReport();
         if (player.getPosition() >= 0) {
-            System.out.println("""
-                    Choose an action\s
-                    1. Forward(f)\s
-                    2. Retreat(r)\s
-                    3. Attack(a)
-                    4. Show Stats(s)\s
-                    5. Surrender(q)""");
+            ui.playerActionsHome();
         } else if (player.getPosition() < 0){
-            System.out.println("""
-                    Choose an action\s
-                    1. Forward(f)\s
-                    2. Retreat(r)\s
-                    3. Attack(a)
-                    4. Drop Bomb(b)\s
-                    5. Show Stats(s)\s
-                    6. Surrender(q)""");
+            ui.playerActionsAway();
         } else if (!player.getBomb()){
-            System.out.println("""
-                    Choose an action\s
-                    1. Forward(f)\s
-                    2. Retreat(r)\s
-                    3. Attack(a)
-                    4. Detonate Bomb(d)\s
-                    5. Show Stats(s)\s
-                    6. Surrender(q)""");
-        } //TODO Finde en anden måde at printe detonate og lave endnu if else til dette f.eks.
+            ui.playerActionsDroppedBomb();
+        } else if (player.bombUsed){
+            ui.playerActionsNoBomb();
+        }
         String input = in.nextLine();
+        while(input.isEmpty()){
+            System.out.print("Please choose and action");
+            input = in.nextLine();
+        }
         return input.charAt(0);
     }
 
@@ -95,10 +81,18 @@ public class GameLogic {
     void dropBomb(){
         player.setBombPosition(player.getPosition());
         player.setBomb(false);
+        System.out.println("You have dropped the bomb at position" + player.getBombPosition());
     }
     void detonateBomb(){
         int bombPostion = player.getBombPosition();
-
+        if (bombPostion == -10) {
+            System.out.println("You have detonated the bomb," +
+                    " at the players headquarters and destroyed their army");
+        } else {
+            //TODO place attack here
+            System.out.println("You have detonated the bomb and hit "); //TODO need attack to determine number of dead solders
+        }
+        player.bombUsed = true;
     }
     void showStats(){
         System.out.printf("Player position: %d \nPlayer firepower: %d \nPlayer troops: %d \nPlayer bomb: %b\n\n",
@@ -149,5 +143,10 @@ public class GameLogic {
     }
 
     void enemyDetonateBomb() { //TODO make enemyDetonateBomb when all else is done
+    }
+
+    void startGame(){
+        ui.startMenu();
+        in.nextLine();
     }
 }

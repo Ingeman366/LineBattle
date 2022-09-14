@@ -2,8 +2,11 @@ public class Player {
     private int troops = 25;
     private boolean bomb = true;
     private int position;
-    private boolean alive = true;
+    private boolean alive = true; //TODO make something that checks alive
     private int firepower = 2500;
+    private int bombPosition;
+    public boolean bombUsed = false;
+
 
 
     public int getBombPosition() {
@@ -13,10 +16,6 @@ public class Player {
     public void setBombPosition(int bombPosition) {
         this.bombPosition = bombPosition;
     }
-
-    private int bombPosition;
-
-
 
     public int getFirepower() {
         return firepower;
