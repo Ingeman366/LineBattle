@@ -11,6 +11,11 @@ public class Die {
         this.value = rng.nextInt(6)+1;
     }
 
+    public int rollAndGetDie(){
+        this.value = rng.nextInt(6)+1;
+        return value;
+    }
+
     private int value;
 
 
