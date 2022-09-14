@@ -89,7 +89,6 @@ public class GameLogic {
             System.out.println("You have detonated the bomb," +
                     " at the players headquarters and destroyed their army");
         } else {
-            //TODO place attack here
             System.out.println("You have detonated the bomb and hit "); //TODO need attack to determine number of dead solders
         }
         player.bombUsed = true;
@@ -139,10 +138,10 @@ public class GameLogic {
         }
     }
 
-    void enemyDropBomb() { //TODO make enemyDrobBomb when all else is done
+    void enemyDropBomb() { //TODO create enemyDrobBomb when all else is done
     }
 
-    void enemyDetonateBomb() { //TODO make enemyDetonateBomb when all else is done
+    void enemyDetonateBomb() { //TODO create enemyDetonateBomb when all else is done
     }
 
     void startGame(){
