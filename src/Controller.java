@@ -3,7 +3,7 @@ public class Controller {
     void run(){
         GameLogic gameLogic = new GameLogic();
         boolean keepRunning = true;
-        do {
+        do { //TODO possibly make class for actions and startmenu
             switch (gameLogic.playerAction()) {
                 case 'f' -> gameLogic.forward();
                 case 'r' -> gameLogic.retreat();
@@ -23,7 +23,7 @@ public class Controller {
                 //case surrender -> GameLogic.surrender();
             }
 
-        } while (keepRunning);
+        } while (keepRunning); //TODO make a while condition
     }
 
 
