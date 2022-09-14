@@ -132,11 +132,14 @@ public class GameLogic {
     void scoutReport(){
         int distanceBetween = (player.getPosition()- enemy.getPosition());
         switch (distanceBetween) {
-            case 1,2 -> System.out.printf("\u001B[41m\u001B[30mWatch out! The enemy is now %d %s IN FRONT of " +
-                    "you\u001B[0m\n", distanceBetween, (distanceBetween==1? "field" : "fields"));
-            case -1,-2,-3 -> System.out.printf("\u001B[41m\u001B[30mWatch out! The enemy is now %d %s BEHIND " +
-                    "you\u001B[0m\n", Math.abs(distanceBetween), (Math.abs(distanceBetween)==1? "field" : "fields"));
-            case 0 -> System.out.println("Watch out! The enemy is now in the same field as you\n");
+            case 1,2 -> System.out.printf(ConsoleColors.RED_BACKGROUND + ConsoleColors.BLACK_BOLD +
+                    "Watch out! The enemy is now %d %s IN FRONT of " +
+                    "you" + ConsoleColors.RESET + "\n", distanceBetween, (distanceBetween==1? "field" : "fields"));
+            case -1,-2,-3 -> System.out.printf(ConsoleColors.RED_BACKGROUND + ConsoleColors.BLACK_BOLD +
+                    "Watch out! The enemy is now %d %s BEHIND " +
+                    "you" + ConsoleColors.RESET + "\n", Math.abs(distanceBetween), (Math.abs(distanceBetween)==1? "field" : "fields"));
+            case 0 -> System.out.println(ConsoleColors.RED_BACKGROUND + ConsoleColors.BLACK_BOLD +
+                    "Watch out! The enemy is now in the same field as you" + ConsoleColors.RESET + "\n");
         }
     }
 
