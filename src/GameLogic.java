@@ -42,46 +42,51 @@ public class GameLogic {
 
      void attack(){
         die1.rollDie();
-        player.setFirepower(player.getFirepower() - (die1.getDie()*100));
-         int distanceBetween = Math.abs((player.getPosition()- enemy.getPosition()));
-         switch (distanceBetween){
-             case 0 -> {
-                 enemy.setTroops(enemy.getTroops() - 6);
-                 System.out.println("You hit the enemy and killed 6 troops");
-             }
-             case 1 -> {
-                 enemy.setTroops(enemy.getTroops() - 5);
-                 System.out.println("You hit the enemy and killed 5 troops");
-             }
-             case 2 -> {
-                 enemy.setTroops(enemy.getTroops() - 4);
-                 System.out.println("You hit the enemy and killed 4 troops");
-             }
-             case 3 -> {
-                 enemy.setTroops(enemy.getTroops() - 3);
-                 System.out.println("You hit the enemy and killed 3 troops");
-             }
-             case 4 -> {
-                 enemy.setTroops(enemy.getTroops() - 2);
-                 System.out.println("You hit the enemy and killed 2 troops");
-             }
+        if (player.getFirepower() < (die1.getDie()*100)){
+            System.out.println("You dont have enough firepower to fire as you rolled " + die1.getDie());
+        } else {
+            player.setFirepower(player.getFirepower() - (die1.getDie() * 100));
+            int distanceBetween = Math.abs((player.getPosition() - enemy.getPosition()));
+            switch (distanceBetween) {
+                case 0 -> {
+                    enemy.setTroops(enemy.getTroops() - 6);
+                    System.out.println("You hit the enemy and killed 6 troops\n");
+                }
+                case 1 -> {
+                    enemy.setTroops(enemy.getTroops() - 5);
+                    System.out.println("You hit the enemy and killed 5 troops\n");
+                }
+                case 2 -> {
+                    enemy.setTroops(enemy.getTroops() - 4);
+                    System.out.println("You hit the enemy and killed 4 troops\n");
+                }
+                case 3 -> {
+                    enemy.setTroops(enemy.getTroops() - 3);
+                    System.out.println("You hit the enemy and killed 3 troops\n");
+                }
+                case 4 -> {
+                    enemy.setTroops(enemy.getTroops() - 2);
+                    System.out.println("You hit the enemy and killed 2 troops\n");
+                }
 
-             case 5 -> {
-                 enemy.setTroops(enemy.getTroops() - 1);
-                 System.out.println("You hit the enemy and killed 1 troops");
-             }
+                case 5 -> {
+                    enemy.setTroops(enemy.getTroops() - 1);
+                    System.out.println("You hit the enemy and killed 1 troops\n");
+                }
 
-             default -> System.out.println("You missed, Enemy too far away");
-         }
-        if (enemy.getTroops() <= 0){
-            System.out.println("You have killed all enemy troops");
-            enemy.setAlive(false);
+                default -> System.out.println("You missed, Enemy too far away\n");
+            }
+            if (enemy.getTroops() <= 0) {
+                System.out.println("You have killed all enemy troops\n");
+                enemy.setAlive(false);
+            }
         }
     }
+
     void forward() {
         die1.rollDie();
         if (player.getPosition() == -10){
-            System.out.println("Player is at the end of the board and can't move any further");
+            System.out.println("Player is at the end of the board and can't move any further\n");
         } else if (player.getPosition() == -9){
             player.setPosition(player.getPosition()-1);
             System.out.println("Player has moved forward and is now at position " + player.getPosition() + "\n");
@@ -128,7 +133,7 @@ public class GameLogic {
         int bombPostion = player.getBombPosition();
         if (bombPostion == -10) {
             System.out.println("You have detonated the bomb," +
-                    " at the players headquarters and destroyed their army");
+                    " at the players headquarters and destroyed their army\n");
             enemy.setAlive(false);
             enemy.setTroops(0);
         } else {
@@ -139,34 +144,34 @@ public class GameLogic {
             switch (distanceBetween){
                 case 0 -> {
                     enemy.setTroops(enemy.getTroops() - 6);
-                    System.out.println("You hit the enemy and killed 6 troops");
+                    System.out.println("You hit the enemy and killed 6 troops\n");
                 }
                 case 1 -> {
                     enemy.setTroops(enemy.getTroops() - 5);
-                    System.out.println("You hit the enemy and killed 5 troops");
+                    System.out.println("You hit the enemy and killed 5 troops\n");
                 }
                 case 2 -> {
                     enemy.setTroops(enemy.getTroops() - 4);
-                    System.out.println("You hit the enemy and killed 4 troops");
+                    System.out.println("You hit the enemy and killed 4 troops\n");
                 }
                 case 3 -> {
                     enemy.setTroops(enemy.getTroops() - 3);
-                    System.out.println("You hit the enemy and killed 3 troops");
+                    System.out.println("You hit the enemy and killed 3 troops\n");
                 }
                 case 4 -> {
                     enemy.setTroops(enemy.getTroops() - 2);
-                    System.out.println("You hit the enemy and killed 2 troops");
+                    System.out.println("You hit the enemy and killed 2 troops\n");
                 }
 
                 case 5 -> {
                     enemy.setTroops(enemy.getTroops() - 1);
-                    System.out.println("You hit the enemy and killed 1 troops");
+                    System.out.println("You hit the enemy and killed 1 troops\n");
                 }
 
                 default -> System.out.println("You missed, Enemy too far away\n");
             }
             if (enemy.getTroops() <= 0){
-                System.out.println("You have killed all enemy troops");
+                System.out.println("You have killed all enemy troops\n");
                 enemy.setAlive(false);
             }
         }
@@ -186,34 +191,33 @@ public class GameLogic {
         switch (distanceBetween){
             case 0 -> {
                 player.setTroops(player.getTroops() - 6);
-                System.out.println("Enemy attacked and killed 6 troops of yours");
+                System.out.println("Enemy attacked and killed 6 troops of yours\n");
             }
             case 1 -> {
                 player.setTroops(player.getTroops() - 5);
-                System.out.println("Enemy attacked and killed 5 troops of yours");
+                System.out.println("Enemy attacked and killed 5 troops of yours\n");
             }
             case 2 -> {
                 player.setTroops(player.getTroops() - 4);
-                System.out.println("Enemy attacked and killed 4 troops of yours");
+                System.out.println("Enemy attacked and killed 4 troops of yours\n");
             }
             case 3 -> {
                 player.setTroops(player.getTroops() - 3);
-                System.out.println("Enemy attacked and killed 3 troops of yours");
+                System.out.println("Enemy attacked and killed 3 troops of yours\n");
             }
             case 4 -> {
                 player.setTroops(player.getTroops() - 2);
-                System.out.println("Enemy attacked and killed 2 troops of yours");
+                System.out.println("Enemy attacked and killed 2 troops of yours\n");
             }
-
             case 5 -> {
                 player.setTroops(player.getTroops() - 1);
-                System.out.println("Enemy attacked and killed 1 troops of yours");
+                System.out.println("Enemy attacked and killed 1 troops of yours\n");
             }
 
-            default -> System.out.println("Enemy attacked but missed");
+            default -> System.out.println("Enemy attacked but missed\n");
         }
         if (player.getTroops() <= 0){
-            System.out.println("All your troops are dead and you have lost");
+            System.out.println("All your troops are dead and you have lost\n");
             player.setAlive(false);
         }
     }
