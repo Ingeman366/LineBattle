@@ -3,7 +3,7 @@ public class Controller {
     void run(){
         GameLogic gameLogic = new GameLogic();
         UI ui = new UI();
-        //Actions actions = new Actions();
+        Actions actions = new Actions();
         gameLogic.startGame();
 
         boolean keepRunning = true;

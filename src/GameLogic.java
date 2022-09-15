@@ -9,11 +9,14 @@ public class GameLogic {
 
     char playerActionInput(){
         scoutReport();
+        int distanceBetween = Math.abs((player.getPosition()- player.getBombPosition()));
         if (player.isBombUsed()) {
             ui.playerActionsNoBomb();
-        } else if (!player.getBomb()){
+        } else if (!player.getBomb() && distanceBetween > 6){
             ui.playerActionsDroppedBomb();
-        } else if (player.getPosition() < 0){
+        } else if (!player.getBomb()){
+            ui.playerActionsHome();
+        }else if (player.getPosition() < 0){
             ui.playerActionsAway();
         } else if (player.getPosition() >= 0){
             ui.playerActionsHome();
