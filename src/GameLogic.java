@@ -76,7 +76,7 @@ public class GameLogic {
          }
     }
     void surrender(){
-        player.setAlive(false); //TODO Check whether this works
+        player.setAlive(false);
     }
     void dropBomb(){
         player.setBombPosition(player.getPosition());
@@ -150,7 +150,7 @@ public class GameLogic {
     }
 
     void startGame(){
-        ui.startMenu();
+        ui.startMenu(); //TODO make start options MAYBE
         in.nextLine();
     }
 
