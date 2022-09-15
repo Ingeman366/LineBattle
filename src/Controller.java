@@ -1,5 +1,3 @@
-import javax.swing.*;
-
 public class Controller {
 
     void run(){
@@ -69,6 +67,7 @@ public class Controller {
                 break;
             }
         } while (keepRunning);
+        gameLogic.gameEnd();
     }
 
 }

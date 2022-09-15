@@ -114,18 +114,20 @@ public class GameLogic {
     }
     void surrender(){
         player.setAlive(false);
+        player.setSurrendered(true);
     }
     void dropBomb(){
         player.setBombPosition(player.getPosition());
         player.setBomb(false);
         System.out.println("You have dropped the bomb at position " + player.getBombPosition());
-    } //TODO make it so that you can only drop one bomb
+    }
     void detonateBomb(){
         int bombPostion = player.getBombPosition();
         if (bombPostion == -10) {
             System.out.println("You have detonated the bomb," +
                     " at the players headquarters and destroyed their army");
             enemy.setAlive(false);
+            enemy.setTroops(0);
         } else {
             System.out.println("You have detonated the bomb");
             die1.rollDie();
@@ -261,13 +263,22 @@ public class GameLogic {
         in.nextLine();
     }
 
-     //TODO make win or lose message
-
     boolean checkPlayerAlive(){
         return player.getAlive();
     }
 
     boolean checkEnemyAlive(){
         return enemy.getAlive();
+    }
+
+    void gameEnd(){
+        if (player.getSurrendered()){
+            ui.playerSurrender();
+        } else if (player.getTroops() == 0){
+            ui.playerLost();
+        } else if (enemy.getTroops() == 0){
+            ui.playerWon();
+        }
+
     }
 }

@@ -63,10 +63,12 @@ public class UI {
     }
 
     public void playerSurrender(){
-
+        System.out.println(ConsoleColors.RED_UNDERLINED + ConsoleColors.WHITE_BACKGROUND
+                + "YOU HAVE SURRENDERED AND LOST!!" + ConsoleColors.RESET);
     }
 
     public void playerLost(){
-
+        System.out.println(ConsoleColors.RED_UNDERLINED + ConsoleColors.WHITE_BACKGROUND
+                +"YOU HAVE BEEN DEFEATED!! GGEZ" + ConsoleColors.RESET);
     }
 }

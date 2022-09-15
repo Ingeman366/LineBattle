@@ -1,4 +1,4 @@
-/*public class Actions {
+public class Actions {
     GameLogic gameLogic = new GameLogic();
 
     void playerActionsHome(char input) {
@@ -55,4 +55,4 @@
             playerActionsHome(input);
         }
     }
-}*/
+}

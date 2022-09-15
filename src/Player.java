@@ -6,6 +6,16 @@ public class Player {
     private int firepower = 2500;
     private int bombPosition;
 
+    public boolean getSurrendered() {
+        return surrendered;
+    }
+
+    public void setSurrendered(boolean surrendered) {
+        this.surrendered = surrendered;
+    }
+
+    public boolean surrendered = false;
+
     public boolean isBombUsed() {
         return bombUsed;
     }
