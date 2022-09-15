@@ -9,7 +9,7 @@ public class GameLogic {
 
     char playerActionInput(){
         scoutReport();
-        if (player.bombUsed) {
+        if (player.isBombUsed()) {
             ui.playerActionsNoBomb();
         } else if (!player.getBomb()){
             ui.playerActionsDroppedBomb();
@@ -104,7 +104,9 @@ public class GameLogic {
                  player.setPosition(10);
              }
              if (player.getPosition() == 10) {
-                 System.out.println("Player has retreated and is now back at base where they have been rearmed");
+                 System.out.println("Player has retreated and is now back at base where they have been rearmed\n");
+                 player.setBomb(true);
+                 player.setBombUsed(false);
              } else {
                  System.out.println("Player has retreated and is now at position " + player.getPosition() + "\n");
              }
@@ -125,9 +127,45 @@ public class GameLogic {
                     " at the players headquarters and destroyed their army");
             enemy.setAlive(false);
         } else {
-            System.out.println("You have detonated the bomb and hit "); //TODO need attack to determine number of dead solders
+            System.out.println("You have detonated the bomb");
+            die1.rollDie();
+            player.setFirepower(player.getFirepower() - (die1.getDie()*100));
+            int distanceBetween = Math.abs((player.getPosition()- enemy.getPosition()));
+            switch (distanceBetween){
+                case 0 -> {
+                    enemy.setTroops(enemy.getTroops() - 6);
+                    System.out.println("You hit the enemy and killed 6 troops");
+                }
+                case 1 -> {
+                    enemy.setTroops(enemy.getTroops() - 5);
+                    System.out.println("You hit the enemy and killed 5 troops");
+                }
+                case 2 -> {
+                    enemy.setTroops(enemy.getTroops() - 4);
+                    System.out.println("You hit the enemy and killed 4 troops");
+                }
+                case 3 -> {
+                    enemy.setTroops(enemy.getTroops() - 3);
+                    System.out.println("You hit the enemy and killed 3 troops");
+                }
+                case 4 -> {
+                    enemy.setTroops(enemy.getTroops() - 2);
+                    System.out.println("You hit the enemy and killed 2 troops");
+                }
+
+                case 5 -> {
+                    enemy.setTroops(enemy.getTroops() - 1);
+                    System.out.println("You hit the enemy and killed 1 troops");
+                }
+
+                default -> System.out.println("You missed, Enemy too far away\n");
+            }
+            if (enemy.getTroops() <= 0){
+                System.out.println("You have killed all enemy troops");
+                enemy.setAlive(false);
+            }
         }
-        player.bombUsed = true;
+        player.setBombUsed(true);
     }
     void showStats(){
         System.out.printf("Player position: %d \nPlayer firepower: %d \nPlayer troops: %d \nPlayer bomb: %b\n\n",
@@ -137,8 +175,42 @@ public class GameLogic {
     }
 
     void enemyAttack(){
-//TODO make enemyAttack
-        System.out.println("Enemy attacked\n");
+        die1.rollDie();
+        enemy.setFirepower(enemy.getFirepower() - (die1.getDie()*100));
+        int distanceBetween = Math.abs((enemy.getPosition()- player.getPosition()));
+        switch (distanceBetween){
+            case 0 -> {
+                player.setTroops(player.getTroops() - 6);
+                System.out.println("Enemy attacked and killed 6 troops of yours");
+            }
+            case 1 -> {
+                player.setTroops(player.getTroops() - 5);
+                System.out.println("Enemy attacked and killed 5 troops of yours");
+            }
+            case 2 -> {
+                player.setTroops(player.getTroops() - 4);
+                System.out.println("Enemy attacked and killed 4 troops of yours");
+            }
+            case 3 -> {
+                player.setTroops(player.getTroops() - 3);
+                System.out.println("Enemy attacked and killed 3 troops of yours");
+            }
+            case 4 -> {
+                player.setTroops(player.getTroops() - 2);
+                System.out.println("Enemy attacked and killed 2 troops of yours");
+            }
+
+            case 5 -> {
+                player.setTroops(player.getTroops() - 1);
+                System.out.println("Enemy attacked and killed 1 troops of yours");
+            }
+
+            default -> System.out.println("Enemy attacked but missed");
+        }
+        if (player.getTroops() <= 0){
+            System.out.println("All your troops are dead and you have lost");
+            player.setAlive(false);
+        }
     }
     void enemyForward(){
         die1.rollDie();
@@ -161,7 +233,7 @@ public class GameLogic {
         System.out.println("Enemy has retreated\n");
          if (enemy.getPosition() < -10){
              enemy.setPosition(-10);
-         } //TODO double check this solution
+         }
     }
 
     void scoutReport(){

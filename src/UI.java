@@ -56,4 +56,9 @@ public class UI {
         System.out.println(ConsoleColors.RED_BACKGROUND_BRIGHT + ConsoleColors.BLACK_BOLD +
                 "Enemy Turn" + ConsoleColors.RESET);
     }
+
+    public void playerWon(){
+        System.out.println(ConsoleColors.BLUE_BOLD_BRIGHT + ConsoleColors.BLACK_UNDERLINED +
+                ConsoleColors.YELLOW_BACKGROUND +"CONGRATULATIONS YOU WON!!" + ConsoleColors.RESET);
+    }
 }
