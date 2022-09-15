@@ -4,7 +4,7 @@ public class Controller {
         GameLogic gameLogic = new GameLogic();
         UI ui = new UI();
         boolean keepRunning = true;
-        do { //TODO possibly make class for actions
+        do { //TODO possibly make class for actions as we can make it so it differs depending on things
             ui.playerTurn();
             switch (gameLogic.playerAction()) {
                 case 'f' -> gameLogic.forward();
@@ -15,7 +15,10 @@ public class Controller {
                 case 's' -> gameLogic.showStats();
                 case 'q' -> gameLogic.surrender();
             }
-
+            if (!gameLogic.checkEnemyAlive() || !gameLogic.checkPlayerAlive()){
+                keepRunning = false;
+                break;
+            }
             ui.enemyTurn();
             switch (gameLogic.enemyAction()) {
                 case 'f' -> gameLogic.enemyForward();
@@ -25,8 +28,11 @@ public class Controller {
                 //case detonateBomb -> gameLogic.enemyDetonateBomb();
                 //case surrender -> GameLogic.surrender();
             }
-
-        } while (keepRunning); //TODO make a while condition
+            if (!gameLogic.checkPlayerAlive() || !gameLogic.checkEnemyAlive()){
+                keepRunning = false;
+                break;
+            }
+        } while (keepRunning);
     }
 
 //TODO Discus making another class for main

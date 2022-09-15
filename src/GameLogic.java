@@ -9,14 +9,14 @@ public class GameLogic {
 
     char playerAction(){
         scoutReport();
-        if (player.getPosition() >= 0) {
-            ui.playerActionsHome();
-        } else if (player.getPosition() < 0){
-            ui.playerActionsAway();
+        if (player.bombUsed) {
+            ui.playerActionsNoBomb();
         } else if (!player.getBomb()){
             ui.playerActionsDroppedBomb();
-        } else if (player.bombUsed){
-            ui.playerActionsNoBomb();
+        } else if (player.getPosition() < 0){
+            ui.playerActionsAway();
+        } else if (player.getPosition() >= 0){
+            ui.playerActionsHome();
         }
         String input = in.nextLine();
         while(input.isEmpty()){
@@ -76,7 +76,7 @@ public class GameLogic {
          }
     }
     void surrender(){
-         player.setAlive(false); //TODO Check whether this works
+        player.setAlive(false); //TODO Check whether this works
     }
     void dropBomb(){
         player.setBombPosition(player.getPosition());
@@ -88,7 +88,7 @@ public class GameLogic {
         if (bombPostion == -10) {
             System.out.println("You have detonated the bomb," +
                     " at the players headquarters and destroyed their army");
-            //TODO make something that kills enemy
+            enemy.setAlive(false);
         } else {
             System.out.println("You have detonated the bomb and hit "); //TODO need attack to determine number of dead solders
         }
@@ -152,5 +152,13 @@ public class GameLogic {
     void startGame(){
         ui.startMenu();
         in.nextLine();
+    }
+
+    boolean checkPlayerAlive(){
+        return player.getAlive();
+    }
+
+    boolean checkEnemyAlive(){
+        return enemy.getAlive();
     }
 }

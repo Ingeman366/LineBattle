@@ -2,7 +2,7 @@ public class Player {
     private int troops = 25;
     private boolean bomb = true;
     private int position;
-    private boolean alive = true; //TODO make something that checks alive
+    private boolean alive = true;
     private int firepower = 2500;
     private int bombPosition;
     public boolean bombUsed = false;
