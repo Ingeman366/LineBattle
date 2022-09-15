@@ -47,4 +47,13 @@ public class UI {
                 Hello Player, Welcome to the game\s
                 Press ENTER to start the game\s""");
     }
+
+    public void playerTurn(){
+        System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT + ConsoleColors.BLACK_BOLD +"Player Turn"+ ConsoleColors.RESET);
+    }
+
+    public void enemyTurn(){
+        System.out.println(ConsoleColors.RED_BACKGROUND_BRIGHT + ConsoleColors.BLACK_BOLD +
+                "Enemy Turn" + ConsoleColors.RESET);
+    }
 }

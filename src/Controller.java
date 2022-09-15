@@ -2,9 +2,10 @@ public class Controller {
 
     void run(){
         GameLogic gameLogic = new GameLogic();
+        UI ui = new UI();
         boolean keepRunning = true;
         do { //TODO possibly make class for actions
-            System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT + ConsoleColors.BLACK_BOLD +"Player Turn"+ ConsoleColors.RESET);
+            ui.playerTurn();
             switch (gameLogic.playerAction()) {
                 case 'f' -> gameLogic.forward();
                 case 'r' -> gameLogic.retreat();
@@ -15,8 +16,7 @@ public class Controller {
                 case 'q' -> gameLogic.surrender();
             }
 
-            System.out.println(ConsoleColors.RED_BACKGROUND_BRIGHT + ConsoleColors.BLACK_BOLD +
-                    "Enemy Turn" + ConsoleColors.RESET);
+            ui.enemyTurn();
             switch (gameLogic.enemyAction()) {
                 case 'f' -> gameLogic.enemyForward();
                 case 'r' -> gameLogic.enemyRetreat();

@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class GameLogic {
@@ -89,6 +88,7 @@ public class GameLogic {
         if (bombPostion == -10) {
             System.out.println("You have detonated the bomb," +
                     " at the players headquarters and destroyed their army");
+            //TODO make something that kills enemy
         } else {
             System.out.println("You have detonated the bomb and hit "); //TODO need attack to determine number of dead solders
         }
