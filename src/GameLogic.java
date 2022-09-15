@@ -139,9 +139,7 @@ public class GameLogic {
             enemy.setTroops(0);
         } else {
             System.out.println("You have detonated the bomb");
-            die1.rollDie();
-            player.setFirepower(player.getFirepower() - (die1.getDie()*100));
-            int distanceBetween = Math.abs((player.getPosition()- enemy.getPosition()));
+            int distanceBetween = Math.abs((player.getBombPosition()- enemy.getPosition()));
             switch (distanceBetween){
                 case 0 -> {
                     enemy.setTroops(enemy.getTroops() - 6);
