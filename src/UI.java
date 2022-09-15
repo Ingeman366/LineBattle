@@ -58,7 +58,7 @@ public class UI {
     }
 
     public void playerWon(){
-        System.out.println(ConsoleColors.BLUE_BOLD_BRIGHT + ConsoleColors.BLACK_UNDERLINED +
+        System.out.println(ConsoleColors.BLACK_UNDERLINED +
                 ConsoleColors.YELLOW_BACKGROUND +"CONGRATULATIONS YOU WON!!" + ConsoleColors.RESET);
     }
 

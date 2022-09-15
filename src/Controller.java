@@ -9,8 +9,9 @@ public class Controller {
         gameLogic.startGame();
 
         boolean keepRunning = true;
-        do { //TODO possibly make class for actions as we can make it so it differs depending on things
+        do {
             ui.playerTurn();
+
             char input = gameLogic.playerActionInput();
             if (gameLogic.player.isBombUsed()) {
                 switch (input) {
@@ -70,9 +71,4 @@ public class Controller {
         } while (keepRunning);
     }
 
-//TODO Discus making another class for main
-    public static void main(String[] args) {
-        Controller controller = new Controller();
-        controller.run();
-    }
 }
