@@ -1,8 +1,8 @@
-public class Actions {
+/*public class Actions {
     GameLogic gameLogic = new GameLogic();
 
-    void playerActinsHome() {
-        switch (gameLogic.playerActionInput()) {
+    void playerActionsHome(char input) {
+        switch (input) {
             case 'f' -> gameLogic.forward();
             case 'r' -> gameLogic.retreat();
             case 'a' -> gameLogic.attack();
@@ -11,8 +11,8 @@ public class Actions {
         }
     }
 
-    void playerActionsAway(){
-        switch (gameLogic.playerActionInput()) {
+    void playerActionsAway(char input){
+        switch (input) {
             case 'f' -> gameLogic.forward();
             case 'r' -> gameLogic.retreat();
             case 'a' -> gameLogic.attack();
@@ -22,8 +22,8 @@ public class Actions {
         }
     }
 
-    void playerActionsDroppedBomb(){
-        switch (gameLogic.playerActionInput()) {
+    void playerActionsDroppedBomb(char input){
+        switch (input) {
             case 'f' -> gameLogic.forward();
             case 'r' -> gameLogic.retreat();
             case 'a' -> gameLogic.attack();
@@ -33,8 +33,8 @@ public class Actions {
         }
     }
 
-    void playerActionsUsedBomb(){
-        switch (gameLogic.playerActionInput()) {
+    void playerActionsUsedBomb(char input){
+        switch (input) {
             case 'f' -> gameLogic.forward();
             case 'r' -> gameLogic.retreat();
             case 'a' -> gameLogic.attack();
@@ -42,4 +42,17 @@ public class Actions {
             case 'q' -> gameLogic.surrender();
         }
     }
-}
+
+    public void playerActions(){
+        char input = gameLogic.playerActionInput();
+        if (gameLogic.player.isBombUsed()) {
+            playerActionsUsedBomb(input);
+        } else if (!gameLogic.player.getBomb()){
+            playerActionsDroppedBomb(input);
+        } else if (gameLogic.player.getPosition() < 0){
+            playerActionsAway(input);
+        } else if (gameLogic.player.getPosition() >= 0){
+            playerActionsHome(input);
+        }
+    }
+}*/

@@ -1,19 +1,54 @@
+import javax.swing.*;
+
 public class Controller {
 
     void run(){
         GameLogic gameLogic = new GameLogic();
         UI ui = new UI();
+        //Actions actions = new Actions();
+        gameLogic.startGame();
+
         boolean keepRunning = true;
         do { //TODO possibly make class for actions as we can make it so it differs depending on things
             ui.playerTurn();
-            switch (gameLogic.playerActionInput()) {
-                case 'f' -> gameLogic.forward();
-                case 'r' -> gameLogic.retreat();
-                case 'a' -> gameLogic.attack();
-                case 'b' -> gameLogic.dropBomb();
-                case 'd' -> gameLogic.detonateBomb();
-                case 's' -> gameLogic.showStats();
-                case 'q' -> gameLogic.surrender();
+            char input = gameLogic.playerActionInput();
+            if (gameLogic.player.isBombUsed()) {
+                switch (input) {
+                    case 'f' -> gameLogic.forward();
+                    case 'r' -> gameLogic.retreat();
+                    case 'a' -> gameLogic.attack();
+                    case 's' -> gameLogic.showStats();
+                    case 'q' -> gameLogic.surrender();
+                    default -> {
+                        System.out.println("Action not possible");
+                        //TODO make loop so you dont lose a turn
+                    }
+                }
+            } else if (!gameLogic.player.getBomb()){
+                switch (input) {
+                    case 'f' -> gameLogic.forward();
+                    case 'r' -> gameLogic.retreat();
+                    case 'a' -> gameLogic.attack();
+                    case 'd' -> gameLogic.detonateBomb();
+                    case 's' -> gameLogic.showStats();
+                    case 'q' -> gameLogic.surrender();
+                }            } else if (gameLogic.player.getPosition() < 0){
+                switch (input) {
+                    case 'f' -> gameLogic.forward();
+                    case 'r' -> gameLogic.retreat();
+                    case 'a' -> gameLogic.attack();
+                    case 'b' -> gameLogic.dropBomb();
+                    case 's' -> gameLogic.showStats();
+                    case 'q' -> gameLogic.surrender();
+                }
+            } else if (gameLogic.player.getPosition() >= 0) {
+                switch (input) {
+                    case 'f' -> gameLogic.forward();
+                    case 'r' -> gameLogic.retreat();
+                    case 'a' -> gameLogic.attack();
+                    case 's' -> gameLogic.showStats();
+                    case 'q' -> gameLogic.surrender();
+                }
             }
             if (!gameLogic.checkEnemyAlive() || !gameLogic.checkPlayerAlive()){
                 keepRunning = false;
@@ -38,8 +73,6 @@ public class Controller {
 //TODO Discus making another class for main
     public static void main(String[] args) {
         Controller controller = new Controller();
-        GameLogic game = new GameLogic();
-        game.startGame();
         controller.run();
     }
 }

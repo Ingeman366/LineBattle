@@ -61,4 +61,12 @@ public class UI {
         System.out.println(ConsoleColors.BLUE_BOLD_BRIGHT + ConsoleColors.BLACK_UNDERLINED +
                 ConsoleColors.YELLOW_BACKGROUND +"CONGRATULATIONS YOU WON!!" + ConsoleColors.RESET);
     }
+
+    public void playerSurrender(){
+
+    }
+
+    public void playerLost(){
+
+    }
 }
