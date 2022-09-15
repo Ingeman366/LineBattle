@@ -6,7 +6,7 @@ public class Controller {
         boolean keepRunning = true;
         do { //TODO possibly make class for actions as we can make it so it differs depending on things
             ui.playerTurn();
-            switch (gameLogic.playerAction()) {
+            switch (gameLogic.playerActionInput()) {
                 case 'f' -> gameLogic.forward();
                 case 'r' -> gameLogic.retreat();
                 case 'a' -> gameLogic.attack();

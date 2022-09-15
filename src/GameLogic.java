@@ -7,7 +7,7 @@ public class GameLogic {
     Player player = new Player(10 - (die1.rollAndGetDie())-1);
     Player enemy = new Player(-10 + (die1.rollAndGetDie())-1);
 
-    char playerAction(){
+    char playerActionInput(){
         scoutReport();
         if (player.bombUsed) {
             ui.playerActionsNoBomb();
@@ -38,7 +38,42 @@ public class GameLogic {
     }
 
      void attack(){
-//TODO make attack
+        die1.rollDie();
+        player.setFirepower(player.getFirepower() - (die1.getDie()*100));
+         int distanceBetween = Math.abs((player.getPosition()- enemy.getPosition()));
+         switch (distanceBetween){
+             case 0 -> {
+                 enemy.setTroops(enemy.getTroops() - 6);
+                 System.out.println("You hit the enemy and killed 6 troops");
+             }
+             case 1 -> {
+                 enemy.setTroops(enemy.getTroops() - 5);
+                 System.out.println("You hit the enemy and killed 5 troops");
+             }
+             case 2 -> {
+                 enemy.setTroops(enemy.getTroops() - 4);
+                 System.out.println("You hit the enemy and killed 4 troops");
+             }
+             case 3 -> {
+                 enemy.setTroops(enemy.getTroops() - 3);
+                 System.out.println("You hit the enemy and killed 3 troops");
+             }
+             case 4 -> {
+                 enemy.setTroops(enemy.getTroops() - 2);
+                 System.out.println("You hit the enemy and killed 2 troops");
+             }
+
+             case 5 -> {
+                 enemy.setTroops(enemy.getTroops() - 1);
+                 System.out.println("You hit the enemy and killed 1 troops");
+             }
+
+             default -> System.out.println("You missed, Enemy too far away");
+         }
+        if (enemy.getTroops() <= 0){
+            System.out.println("You have killed all enemy troops");
+            enemy.setAlive(false);
+        }
     }
     void forward() {
         die1.rollDie();
@@ -153,6 +188,8 @@ public class GameLogic {
         ui.startMenu(); //TODO make start options MAYBE
         in.nextLine();
     }
+
+     //TODO make win or lose message
 
     boolean checkPlayerAlive(){
         return player.getAlive();
