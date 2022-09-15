@@ -100,6 +100,7 @@ public class GameLogic {
     }
     void retreat(){
          die1.rollDie();
+         player.setFirepower(player.getFirepower()+250);
          if (player.getPosition() == 10){
              System.out.println("Player is already back at base and cannot go further backwards");
          } else {
