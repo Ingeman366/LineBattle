@@ -12,7 +12,7 @@ public class Die {
     }
 
     public int rollAndGetDie(){
-        this.value = rng.nextInt(6)+1;
+        this.value = rng.nextInt(3)+1;
         return value;
     }
 
