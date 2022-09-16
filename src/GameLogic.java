@@ -31,7 +31,12 @@ public class GameLogic {
 
     char enemyAction(){ //TODO expand enemy actions to have more actions
         char eAction = '0';
-        int action = die1.rng.nextInt(3)+1;
+        int action;
+        if (enemyScoutReport()==true){
+            action = 3;
+        } else {
+            action = 1;
+        }
         switch (action){
             case 1 -> eAction = 'f';
             case 2 -> eAction = 'r';
