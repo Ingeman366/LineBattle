@@ -5,16 +5,16 @@ public class Player {
     private boolean alive = true;
     private int firepower = 2500;
     private int bombPosition;
+    public boolean bombUsed = false;
+    public boolean surrendered = false;
+
 
     public boolean getSurrendered() {
         return surrendered;
     }
-
     public void setSurrendered(boolean surrendered) {
         this.surrendered = surrendered;
     }
-
-    public boolean surrendered = false;
 
     public boolean isBombUsed() {
         return bombUsed;
@@ -23,9 +23,6 @@ public class Player {
     public void setBombUsed(boolean bombUsed) {
         this.bombUsed = bombUsed;
     }
-
-    public boolean bombUsed = false;
-
 
 
     public int getBombPosition() {
