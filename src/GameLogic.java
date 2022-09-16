@@ -272,7 +272,7 @@ public class GameLogic {
         }
     }
     public boolean enemyScoutReport(){
-        int distanceToPlayer = (enemy.getPosition()-player.getPosition());
+        int distanceToPlayer = (player.getPosition()-enemy.getPosition());
         boolean attack = false;
         switch (distanceToPlayer){
             case -3, -2, -1, 0, 1, 2 -> attack = true;
