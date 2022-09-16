@@ -266,9 +266,14 @@ public class GameLogic {
                     "Watch out! The enemy is now in the same field as you" + ConsoleColors.RESET + "\n");
         }
     }
-    public int enemyScoutReport(){
+    public boolean enemyScoutReport(){
         int distanceToPlayer = (enemy.getPosition()-player.getPosition());
-        return distanceToPlayer;
+        boolean attack = false;
+        switch (distanceToPlayer){
+            case -3, -2, -1, 0, 1, 2 -> attack = true;
+            default -> attack = false;
+        }
+        return attack;
     }
 
     void enemyDropBomb() { //TODO create enemyDrobBomb when all else is done
