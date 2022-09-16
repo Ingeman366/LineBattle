@@ -12,7 +12,7 @@ public class GameLogic {
         int distanceBetween = Math.abs((player.getPosition()- player.getBombPosition()));
         if (player.isBombUsed()) {
             ui.playerActionsNoBomb();
-        } else if (!player.getBomb() && distanceBetween > 6){
+        } else if (!player.getBomb() && distanceBetween > 6 && player.getPosition() > -1){
             ui.playerActionsDroppedBomb();
         } else if (!player.getBomb()){
             ui.playerActionsHome();
@@ -32,15 +32,16 @@ public class GameLogic {
     char enemyAction(){ //TODO expand enemy actions to have more actions
         char eAction = '0';
         int action;
+        int die = die1.rng.nextInt(3)+1;
         if (enemyScoutReport()==true){
-            action = 3;
+            action = 2;
         } else {
-            action = 1;
+            action = die;
         }
         switch (action){
             case 1 -> eAction = 'f';
-            case 2 -> eAction = 'r';
-            case 3 -> eAction = 'a';
+            case 2 -> eAction = 'a';
+            case 3 -> eAction = 'r';
         }
         return eAction;
     }

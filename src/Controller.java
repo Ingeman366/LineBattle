@@ -81,13 +81,8 @@ public class Controller {
                 e.printStackTrace();
             }
             roundNumber += 1;
-                if (roundNumber < 5) {
-                    switch (gameLogic.enemyAction()) {
-                        case 'f' -> gameLogic.enemyForward();
-                        case 'a' -> gameLogic.enemyAttack();
-                        //TODO case dropBomb -> gameLogic.enemyDropBomb();
-                        //TODO case detonateBomb -> gameLogic.enemyDetonateBomb();
-                    }
+                if (roundNumber < 3) {
+                    gameLogic.enemyForward();
                 } else {
                     switch (gameLogic.enemyAction()) {
                         case 'f' -> gameLogic.enemyForward();
