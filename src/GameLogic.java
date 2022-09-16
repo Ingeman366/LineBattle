@@ -114,8 +114,12 @@ public class GameLogic {
              }
              if (player.getPosition() == 10) {
                  System.out.println("Player has retreated and is now back at base where they have been rearmed\n");
-                 player.setBomb(true);
-                 player.setBombUsed(false);
+                 if (player.getBombPosition() < 0) {
+                     player.getBombPosition();
+                 } else {
+                     player.setBomb(true);
+                     player.setBombUsed(false);
+                 }
              } else {
                  System.out.println("Player has retreated and is now at position " + player.getPosition() + "\n");
              }
@@ -186,7 +190,7 @@ public class GameLogic {
     void enemyAttack(){
         die1.rollDie();
         if (enemy.getFirepower() < (die1.getDie()*100)){
-            System.out.println("Enemy tried to attack but does not have enough firepower");
+            System.out.println("Enemy tried to attack but does not have enough firepower\n");
         } else {
             enemy.setFirepower(enemy.getFirepower() - (die1.getDie() * 100));
             int distanceBetween = Math.abs((enemy.getPosition() - player.getPosition()));
