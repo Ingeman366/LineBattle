@@ -43,7 +43,7 @@ public class UI {
     }
 
     public void startMenu(){
-        System.out.println(ConsoleColors.WHITE_UNDERLINED +"""
+        System.out.println(ConsoleColors.WHITE_BOLD_BRIGHT +"""
                 Hello Player, Welcome to the game\s 
                 Press ENTER to start the game\s""" + ConsoleColors.RESET);
     }
