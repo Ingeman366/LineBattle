@@ -43,9 +43,9 @@ public class UI {
     }
 
     public void startMenu(){
-        System.out.println("""
-                Hello Player, Welcome to the game\s
-                Press ENTER to start the game\s""");
+        System.out.println(ConsoleColors.WHITE_UNDERLINED +"""
+                Hello Player, Welcome to the game\s 
+                Press ENTER to start the game\s""" + ConsoleColors.RESET);
     }
 
     public void playerTurn(){
