@@ -63,7 +63,7 @@ public class UI {
     }
 
     public void playerSurrender(){
-        System.out.println(ConsoleColors.RED_UNDERLINED + ConsoleColors.WHITE_BACKGROUND
+        System.out.println(ConsoleColors.RED_UNDERLINED + ConsoleColors.WHITE_BACKGROUND_BRIGHT
                 + "YOU HAVE SURRENDERED AND LOST!!" + ConsoleColors.RESET);
     }
 
