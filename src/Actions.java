@@ -17,7 +17,8 @@ public class Actions {
             case 's' -> gameLogic.showStats();
             case 'q' -> gameLogic.surrender();
             default -> {
-                System.out.println("Action not possible");
+                System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT + ConsoleColors.BLACK_BOLD +
+                        "Action not possible"+ ConsoleColors.RESET);
                 playerActionsHome(inputNew());
             }
             }
@@ -32,7 +33,10 @@ public class Actions {
                 case 's' -> gameLogic.showStats();
                 case 'q' -> gameLogic.surrender();
                 default -> {
-                    System.out.println("Action not possible");
+                    System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT + ConsoleColors.BLACK_BOLD +
+                            "Action not possible"+ ConsoleColors.RESET);
+                    playerActionsAway(inputNew());
+
                 }
             }
         }
@@ -45,6 +49,11 @@ public class Actions {
                 case 'd' -> gameLogic.detonateBomb();
                 case 's' -> gameLogic.showStats();
                 case 'q' -> gameLogic.surrender();
+                default -> {
+                    System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT + ConsoleColors.BLACK_BOLD +
+                            "Action not possible"+ ConsoleColors.RESET);
+                    playerActionsDroppedBomb(inputNew());
+                }
             }
         }
 
@@ -55,6 +64,11 @@ public class Actions {
                 case 'a' -> gameLogic.attack();
                 case 's' -> gameLogic.showStats();
                 case 'q' -> gameLogic.surrender();
+                default -> {
+                    System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT + ConsoleColors.BLACK_BOLD +
+                            "Action not possible"+ ConsoleColors.RESET);
+                    playerActionsUsedBomb(inputNew());
+                }
             }
         }
 

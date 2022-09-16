@@ -273,6 +273,7 @@ public class GameLogic {
     void enemyDetonateBomb() { //TODO create enemyDetonateBomb when all else is done
     }
 
+
     void startGame(){
         ui.startMenu(); //TODO make start options MAYBE
         in.nextLine();

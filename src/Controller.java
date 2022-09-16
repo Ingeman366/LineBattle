@@ -4,6 +4,7 @@ public class Controller {
         UI ui = new UI();
         Actions actions = new Actions();
         gameLogic.startGame();
+        int roundNumber = 0;
 
         boolean keepRunning = true;
         do {
@@ -79,14 +80,25 @@ public class Controller {
             } catch (InterruptedException e){
                 e.printStackTrace();
             }
-            switch (gameLogic.enemyAction()) {
-                case 'f' -> gameLogic.enemyForward();
-                case 'r' -> gameLogic.enemyRetreat();
-                case 'a' -> gameLogic.enemyAttack();
-                //TODO case dropBomb -> gameLogic.enemyDropBomb();
-                //TODO case detonateBomb -> gameLogic.enemyDetonateBomb();
-                //TODO case surrender -> GameLogic.surrender();
-            }
+            roundNumber += 1;
+                if (roundNumber < 5) {
+                    switch (gameLogic.enemyAction()) {
+                        case 'f' -> gameLogic.enemyForward();
+                        case 'a' -> gameLogic.enemyAttack();
+                        //TODO case dropBomb -> gameLogic.enemyDropBomb();
+                        //TODO case detonateBomb -> gameLogic.enemyDetonateBomb();
+                    }
+                } else {
+                    switch (gameLogic.enemyAction()) {
+                        case 'f' -> gameLogic.enemyForward();
+                        case 'r' -> gameLogic.enemyRetreat();
+                        case 'a' -> gameLogic.enemyAttack();
+                        //TODO case dropBomb -> gameLogic.enemyDropBomb();
+                        //TODO case detonateBomb -> gameLogic.enemyDetonateBomb();
+                    }
+                }
+
+
             if (!gameLogic.checkPlayerAlive() || !gameLogic.checkEnemyAlive()){
                 keepRunning = false;
                 break;
