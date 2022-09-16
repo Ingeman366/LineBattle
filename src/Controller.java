@@ -1,5 +1,4 @@
 public class Controller {
-
     void run(){
         GameLogic gameLogic = new GameLogic();
         UI ui = new UI();
@@ -70,13 +69,23 @@ public class Controller {
                 break;
             }
             ui.enemyTurn();
+            try {
+                Thread.sleep(400);
+                System.out.print(".");
+                Thread.sleep(400);
+                System.out.print(".");
+                Thread.sleep(400);
+                System.out.print(".");
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
             switch (gameLogic.enemyAction()) {
                 case 'f' -> gameLogic.enemyForward();
                 case 'r' -> gameLogic.enemyRetreat();
                 case 'a' -> gameLogic.enemyAttack();
-                //case dropBomb -> gameLogic.enemyDropBomb();
-                //case detonateBomb -> gameLogic.enemyDetonateBomb();
-                //case surrender -> GameLogic.surrender();
+                //TODO case dropBomb -> gameLogic.enemyDropBomb();
+                //TODO case detonateBomb -> gameLogic.enemyDetonateBomb();
+                //TODO case surrender -> GameLogic.surrender();
             }
             if (!gameLogic.checkPlayerAlive() || !gameLogic.checkEnemyAlive()){
                 keepRunning = false;
