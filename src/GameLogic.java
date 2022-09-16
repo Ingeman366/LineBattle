@@ -266,6 +266,8 @@ public class GameLogic {
                     "Watch out! The enemy is now in the same field as you" + ConsoleColors.RESET + "\n");
         }
     }
+    public int enemyScoutReport(){
+    }
 
     void enemyDropBomb() { //TODO create enemyDrobBomb when all else is done
     }
