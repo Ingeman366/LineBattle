@@ -267,6 +267,8 @@ public class GameLogic {
         }
     }
     public int enemyScoutReport(){
+        int distanceToPlayer = (enemy.getPosition()-player.getPosition());
+        return distanceToPlayer;
     }
 
     void enemyDropBomb() { //TODO create enemyDrobBomb when all else is done
