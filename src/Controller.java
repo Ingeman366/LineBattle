@@ -80,6 +80,7 @@ public class Controller {
             } catch (InterruptedException e){
                 e.printStackTrace();
             }
+
             roundNumber += 1;
                 if (roundNumber < 3) {
                     gameLogic.enemyForward();
